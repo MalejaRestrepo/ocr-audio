@@ -7,7 +7,7 @@ import numpy as np
 import pytesseract
 from PIL import Image
 from gtts import gTTS
-from deep_translator import GoogleTranslator  # ✅ reemplazo de googletrans
+from deep_translator import GoogleTranslator
 
 # CONFIGURACIÓN GENERAL
 st.set_page_config(
@@ -17,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 🎨 ESTILOS VISUALES COMPLETOS
+# 🎨 ESTILOS VISUALES ACTUALIZADOS
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
@@ -85,21 +85,27 @@ st.markdown("""
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    /* Forzar color de etiquetas de widgets en el contenido principal */
+    /* Texto general en widgets */
     [data-testid="stWidgetLabel"],
     [data-testid="stCheckbox"] > label,
     div[data-baseweb="checkbox"] label {
       color: #1f244b !important;
     }
 
-    /* Label del file_uploader ("Cargar una imagen") */
+    /* Etiquetas del file uploader */
     [data-testid="stFileUploader"] label,
     [data-testid="stFileUploader"] span,
     [data-testid="stFileUploader"] p {
       color: #1f244b !important;
     }
 
-    /* Texto genérico dentro de contenedores markdown */
+    /* Texto dentro del botón oscuro del uploader */
+    [data-testid="stFileUploader"] button {
+      color: white !important;
+      font-weight: 600 !important;
+    }
+
+    /* Texto genérico en markdown */
     [data-testid="stMarkdownContainer"] p,
     [data-testid="stMarkdownContainer"] span {
       color: #1f244b !important;
@@ -117,7 +123,6 @@ st.markdown("""
 
 # FUNCIONES AUXILIARES
 def traducir_texto(text, src, dest):
-    """Traduce texto usando deep-translator"""
     return GoogleTranslator(source=src, target=dest).translate(text)
 
 def text_to_speech(input_language, output_language, text, tld):
