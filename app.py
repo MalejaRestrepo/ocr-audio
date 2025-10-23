@@ -7,7 +7,7 @@ import numpy as np
 import pytesseract
 from PIL import Image
 from gtts import gTTS
-from deep_translator import GoogleTranslator
+from deep_translator import GoogleTranslator  # ✅ reemplazo de googletrans
 
 # CONFIGURACIÓN GENERAL
 st.set_page_config(
@@ -17,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 🎨 ESTILOS ACTUALIZADOS (fondo pastel + texto azul oscuro)
+# 🎨 ESTILOS VISUALES COMPLETOS
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
@@ -83,6 +83,26 @@ st.markdown("""
         color: #1f244b !important;
         height: 3.2rem;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Forzar color de etiquetas de widgets en el contenido principal */
+    [data-testid="stWidgetLabel"],
+    [data-testid="stCheckbox"] > label,
+    div[data-baseweb="checkbox"] label {
+      color: #1f244b !important;
+    }
+
+    /* Label del file_uploader ("Cargar una imagen") */
+    [data-testid="stFileUploader"] label,
+    [data-testid="stFileUploader"] span,
+    [data-testid="stFileUploader"] p {
+      color: #1f244b !important;
+    }
+
+    /* Texto genérico dentro de contenedores markdown */
+    [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMarkdownContainer"] span {
+      color: #1f244b !important;
     }
 
     .stAlert p {
