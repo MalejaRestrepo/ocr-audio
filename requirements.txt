@@ -1,11 +1,7 @@
-#streamlit==0.80.0
 streamlit
-gTTS==2.2.2
-googletrans==3.1.0a0
-streamlit-webrtc
-numpy
-opencv-python-headless
 pytesseract
-Pillow
-
-
+opencv-python-headless
+numpy
+pillow
+gtts
+googletrans==4.0.0rc1
