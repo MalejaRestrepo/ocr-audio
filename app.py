@@ -7,7 +7,7 @@ import numpy as np
 import pytesseract
 from PIL import Image
 from gtts import gTTS
-from googletrans import Translator
+from deep_translator import GoogleTranslator  # ✅ reemplazo de googletrans
 
 # CONFIGURACIÓN GENERAL
 st.set_page_config(
@@ -88,9 +88,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # FUNCIONES AUXILIARES
+def traducir_texto(text, src, dest):
+    """Traduce texto usando deep-translator"""
+    return GoogleTranslator(source=src, target=dest).translate(text)
+
 def text_to_speech(input_language, output_language, text, tld):
-    translation = translator.translate(text, src=input_language, dest=output_language)
-    trans_text = translation.text
+    trans_text = traducir_texto(text, input_language, output_language)
     tts = gTTS(trans_text, lang=output_language, tld=tld, slow=False)
     my_file_name = text[0:20] if text.strip() else "audio"
     tts.save(f"temp/{my_file_name}.mp3")
@@ -158,8 +161,6 @@ with st.sidebar:
         os.mkdir("temp")
     except:
         pass
-
-    translator = Translator()
 
     in_lang = st.selectbox(
         "Lenguaje de entrada",
