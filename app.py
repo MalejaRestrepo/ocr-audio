@@ -7,7 +7,7 @@ import numpy as np
 import pytesseract
 from PIL import Image
 from gtts import gTTS
-from deep_translator import GoogleTranslator  # ✅ reemplazo de googletrans
+from deep_translator import GoogleTranslator
 
 # CONFIGURACIÓN GENERAL
 st.set_page_config(
@@ -17,36 +17,36 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ESTILOS VISUALES
+# 🎨 ESTILOS ACTUALIZADOS (fondo pastel + texto azul oscuro)
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
-        background: linear-gradient(180deg, #e8e4ff 0%, #d7f3ff 100%);
-        color: #1e1c3a;
+        background: linear-gradient(180deg, #e6e4ff 0%, #d9f4ff 100%);
+        color: #1f244b;
         font-family: 'Poppins', sans-serif;
     }
 
     h1, h2, h3 {
-        color: #372b6d;
+        color: #1f244b;
         text-align: center;
         font-weight: 600;
         letter-spacing: 0.5px;
     }
 
     section[data-testid="stSidebar"] {
-        background-color: #f2ebff;
-        border-right: 2px solid #c8bfff;
-        color: #2b2a40;
+        background-color: #efeaff;
+        border-right: 2px solid #c4b8ff;
+        color: #1f244b;
     }
 
     section[data-testid="stSidebar"] * {
-        color: #2b2a40 !important;
+        color: #1f244b !important;
         font-size: 15px;
     }
 
     div.stButton > button {
-        background: linear-gradient(90deg, #b7a3ff 0%, #9ee0ff 100%);
-        color: #2b2a40;
+        background: linear-gradient(90deg, #b9a6ff 0%, #a1e3ff 100%);
+        color: #1f244b;
         font-weight: 600;
         border-radius: 10px;
         border: none;
@@ -57,15 +57,15 @@ st.markdown("""
     }
 
     div.stButton > button:hover {
-        background: linear-gradient(90deg, #9f8cff 0%, #89d8ff 100%);
+        background: linear-gradient(90deg, #a694ff 0%, #8fd8ff 100%);
         transform: scale(1.05);
     }
 
     textarea, input, select {
         background-color: #ffffff !important;
-        color: #1e1c3a !important;
+        color: #1f244b !important;
         border-radius: 10px !important;
-        border: 1px solid #c4c4c4 !important;
+        border: 1px solid #b9b9d9 !important;
     }
 
     img {
@@ -75,14 +75,22 @@ st.markdown("""
 
     audio {
         border-radius: 10px;
-        border: 2px solid #c5a3ff;
+        border: 2px solid #b7a6ff;
     }
 
     [data-testid="stHeader"] {
-        background: linear-gradient(90deg, #b9a6ff 0%, #a1e3ff 100%) !important;
-        color: #2b2a40 !important;
+        background: linear-gradient(90deg, #b7a6ff 0%, #9be4ff 100%) !important;
+        color: #1f244b !important;
         height: 3.2rem;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .stAlert p {
+        color: #1f244b !important;
+    }
+
+    .stSuccess, .stInfo {
+        color: #1f244b !important;
     }
     </style>
 """, unsafe_allow_html=True)
