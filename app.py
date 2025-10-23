@@ -17,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 🎨 ESTILOS VISUALES ACTUALIZADOS
+# 🎨 ESTILOS VISUALES CON CONTRASTE CORRECTO
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
@@ -34,7 +34,7 @@ st.markdown("""
     }
 
     section[data-testid="stSidebar"] {
-        background-color: #efeaff;
+        background-color: #ebe5ff;
         border-right: 2px solid #c4b8ff;
         color: #1f244b;
     }
@@ -68,6 +68,37 @@ st.markdown("""
         border: 1px solid #b9b9d9 !important;
     }
 
+    /* SELECTS Y MENÚS OSCUROS → TEXTO BLANCO */
+    div[data-baseweb="select"] {
+        background-color: #2b2b33 !important;
+        color: white !important;
+        border-radius: 10px !important;
+        border: 1px solid #3c3c4a !important;
+    }
+    div[data-baseweb="select"] * {
+        color: white !important;
+    }
+
+    /* FILE UPLOADER OSCURO → TEXTO BLANCO */
+    [data-testid="stFileUploader"] div {
+        color: white !important;
+    }
+    [data-testid="stFileUploader"] button {
+        color: white !important;
+        font-weight: 600 !important;
+    }
+    [data-testid="stFileUploader"] p,
+    [data-testid="stFileUploader"] span {
+        color: white !important;
+    }
+
+    /* CHECKBOXES */
+    [data-testid="stWidgetLabel"],
+    [data-testid="stCheckbox"] > label,
+    div[data-baseweb="checkbox"] label {
+      color: #1f244b !important;
+    }
+
     img {
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -85,32 +116,7 @@ st.markdown("""
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    /* Texto general en widgets */
-    [data-testid="stWidgetLabel"],
-    [data-testid="stCheckbox"] > label,
-    div[data-baseweb="checkbox"] label {
-      color: #1f244b !important;
-    }
-
-    /* Etiquetas del file uploader */
-    [data-testid="stFileUploader"] label,
-    [data-testid="stFileUploader"] span,
-    [data-testid="stFileUploader"] p {
-      color: #1f244b !important;
-    }
-
-    /* Texto dentro del botón oscuro del uploader */
-    [data-testid="stFileUploader"] button {
-      color: white !important;
-      font-weight: 600 !important;
-    }
-
-    /* Texto genérico en markdown */
-    [data-testid="stMarkdownContainer"] p,
-    [data-testid="stMarkdownContainer"] span {
-      color: #1f244b !important;
-    }
-
+    /* TEXTO GENERAL EN ALERTAS */
     .stAlert p {
         color: #1f244b !important;
     }
